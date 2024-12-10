@@ -4,11 +4,13 @@ export const name = 'chatlog'
 export const inject = ["database"]
 
 export interface Config {
-  enable: boolean
+  show_in_log: boolean
+  save_to_db: boolean
 }
 
 export const Config: Schema<Config> = Schema.object({
-  enable: Schema.boolean().description("是否启用？")
+  show_in_log: Schema.boolean().description("是否在日志中显示？").default(true),
+  save_to_db: Schema.boolean().description("是否存储在数据库中？").default(true)
 })
 
 declare module 'koishi' {
@@ -45,8 +47,10 @@ export function apply(ctx: Context, config: Config) {
   })
   const dispose = ctx.middleware(
     async (session, next) => {
-      if (config.enable) {
+      if (config.show_in_log) {
         ctx.logger.info(`[${session.username}] '${JSON.parse(JSON.stringify(session.content))}'`)
+      }
+      if (config.save_to_db) {
         const log: ChatlogDB = {
           timestamp: session.timestamp,
           platform: session.platform,
