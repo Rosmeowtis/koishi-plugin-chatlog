@@ -1,0 +1,22 @@
+{
+  "name": "koishi-plugin-chatlog",
+  "description": "将Bot接受到的信息以完全格式显示在日志中（Debug级别）",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "license": "MIT",
+  "scripts": {},
+  "keywords": [
+    "chatbot",
+    "koishi",
+    "plugin"
+  ],
+  "devDependencies": {},
+  "peerDependencies": {
+    "koishi": "^4.18.0"
+  }
+}
