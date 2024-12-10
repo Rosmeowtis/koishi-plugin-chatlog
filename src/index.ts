@@ -25,8 +25,6 @@ interface ChatlogDB {
   selfId: string,
   userId: string,
   message: string,
-  user: string,
-  channel: string,
 }
 
 
@@ -41,8 +39,6 @@ export function apply(ctx: Context, config: Config) {
     selfId: 'string(63)',
     userId: 'string(63)',
     message: 'text',
-    user: 'string(255)',
-    channel: 'string(255)'
   }, {
     primary: 'id',
     autoInc: true,
@@ -58,8 +54,6 @@ export function apply(ctx: Context, config: Config) {
           selfId: session.selfId,
           userId: session.userId,
           message: JSON.stringify(session.content),
-          user: JSON.stringify(session?.user),
-          channel: JSON.stringify(session?.channel)
         }
         await ctx.database.create('chatlog', log)
       }

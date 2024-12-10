@@ -1,6 +1,6 @@
 {
   "name": "koishi-plugin-chatlog",
-  "description": "将Bot接受到的信息以完全格式显示在日志中（Info级别），并将完整session内容（JSON格式）存储在数据库中",
+  "description": "将Bot接受到的信息以简略形式显示在日志中（Info级别），并将主要的session内容存储在数据库中",
   "version": "0.0.1",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
