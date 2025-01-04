@@ -2,6 +2,11 @@
   "name": "koishi-plugin-chatlog",
   "description": "将Bot接受到的信息以简略形式显示在日志中（Info级别），并将主要的session内容存储在数据库中",
   "version": "0.0.1",
+  "homepage": "https://github.com/Rosmeowtis/koishi-plugin-chatlog",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rosmeowtis/koishi-plugin-chatlog.git"
+  },
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -10,11 +15,21 @@
   ],
   "license": "MIT",
   "keywords": [
-    "chatbot",
+    "logger",
     "koishi",
     "plugin"
   ],
   "peerDependencies": {
     "koishi": "^4.18.0"
+  },
+  "koishi": {
+    "preview": true,
+    "description": {
+      "en": "record messages in log file or database, to be able to inspect message object while developing another koishi plugin",
+      "zh": "将bot接收到的消息记录在日志文件或数据库中，方便在开发消息处理相关插件时查看bot到底收到个啥"
+    },
+    "service": {
+      "optional": ["database"]
+    }
   }
 }
